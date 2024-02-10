@@ -20,7 +20,10 @@ export default function Header() {
 				<ul className='flex gap-x-6 h-full text-sm'>
 					{routes.map(route => {
 						return (
-							<li className='text-white/50 hover:text-white transition' key={route.path}>
+							<li
+								className='text-white/50 hover:text-white transition'
+								key={route.path}
+							>
 								<Link href={route.path}>{route.name}</Link>
 							</li>
 						)
