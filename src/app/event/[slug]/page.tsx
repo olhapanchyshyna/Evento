@@ -1,7 +1,21 @@
 import React from 'react'
 
-export default function EventPage() {
+type EventsPageProps = {
+	params: {
+		slug: string
+	}
+}
+
+export default async function EventPage({params}: EventsPageProps) {
+	const slug = params.slug
+	const respons = await fetch(
+		`https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
+	)
+	const event = await respons.json()
+
 	return (
-		<div>EventPage</div>
+		<main>
+
+		</main>
 	)
 }
