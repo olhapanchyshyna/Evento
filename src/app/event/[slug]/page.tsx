@@ -1,5 +1,6 @@
 import H1 from '@/components/H1'
 import Image from 'next/image'
+import { ReactNode } from 'react'
 
 type EventsPageProps = {
 	params: {
@@ -59,6 +60,34 @@ export default async function EventPage({ params }: EventsPageProps) {
 					</div>
 				</div>
 			</section>
+
+			<div className='min-h-[75vh] text-center px-5 py-16'>
+				<Section>
+					<SectionHeading>About this event</SectionHeading>
+					<SectionDescription>{event.description}</SectionDescription>
+				</Section>
+
+				<Section>
+					<SectionHeading>Location</SectionHeading>
+					<SectionDescription>{event.location}</SectionDescription>
+				</Section>
+			</div>
 		</main>
+	)
+}
+
+function Section({ children }: { children: ReactNode }) {
+	return <section className='mb-12'>{children}</section>
+}
+
+function SectionHeading({ children }: { children: ReactNode }) {
+	return <h2 className='text-2xl mb-8'>{children}</h2>
+}
+
+function SectionDescription({ children }: { children: ReactNode }) {
+	return (
+		<p className='max-w-4xl mx-auto text-lg leading-8 text-white/75'>
+			{children}
+		</p>
 	)
 }
