@@ -1,6 +1,7 @@
+import { EventoEvents } from '@prisma/client'
 import clsx, { ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { EventoEvents } from './types'
+
 
 export function cn(...classes: ClassValue[]) {
 	return twMerge(clsx(classes))
@@ -23,7 +24,7 @@ export async function getEvent(slug: string) {
 	const respons = await fetch(
 		`https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
 	)
-	const event = await respons.json()
+	const event: EventoEvents = await respons.json()
 
 	return event
 }
