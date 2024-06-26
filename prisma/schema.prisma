@@ -64,7 +64,7 @@ model Pet {
 }
 
 // Using same database for 3 projects
-model EventoEvent {
+model EventoEvents {
   id            Int      @id @default(autoincrement())
   name          String
   slug          String   @unique
